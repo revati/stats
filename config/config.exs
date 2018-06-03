@@ -15,8 +15,7 @@ config :stats, StatsWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "9X6b8iNQbotyoO8Jh9FSRMfoaHjJzeP7thXqmceq8UC0Mi5AGNCTBQw3uPrxIqNY",
   render_errors: [view: StatsWeb.ErrorView, accepts: ~w(json)],
-  pubsub: [name: Stats.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Stats.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -25,4 +24,4 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"

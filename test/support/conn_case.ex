@@ -26,13 +26,13 @@ defmodule StatsWeb.ConnCase do
     end
   end
 
-
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Stats.Repo)
+
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(Stats.Repo, {:shared, self()})
     end
+
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
-
 end

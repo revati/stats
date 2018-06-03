@@ -11,7 +11,7 @@ defmodule Stats.Application do
       # Start the Ecto repository
       supervisor(Stats.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(StatsWeb.Endpoint, []),
+      supervisor(StatsWeb.Endpoint, [])
       # Start your own worker by calling: Stats.Worker.start_link(arg1, arg2, arg3)
       # worker(Stats.Worker, [arg1, arg2, arg3]),
     ]
