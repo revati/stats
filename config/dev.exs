@@ -39,8 +39,9 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :stats, Stats.Repo,
   adapter: Ecto.Adapters.MySQL,
-  username: "root",
-  password: "",
-  database: "stats_dev",
-  hostname: "localhost",
+  username: "homestead",
+  password: "secret",
+  database: "stats",
+  hostname: "127.0.0.1",
+  port: 33060,
   pool_size: 10

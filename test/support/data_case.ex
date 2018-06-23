@@ -22,6 +22,8 @@ defmodule Stats.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import Stats.DataCase
+      import Stats.Fixture
+      import Stats.Factory
     end
   end
 

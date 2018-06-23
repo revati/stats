@@ -8,7 +8,12 @@ use Mix.Config
 # General application configuration
 config :stats,
   ecto_repos: [Stats.Repo],
-  generators: [binary_id: true]
+  generators: [binary_id: true],
+  base_url: "http://www.saeima.lv",
+  votes_base_url: "http://titania.saeima.lv/",
+  contents_fetcher: SOMEMODULEGOESHERER
+
+config :stats, Stats.Repo, migration_primary_key: [id: :uuid, type: :binary_id]
 
 # Configures the endpoint
 config :stats, StatsWeb.Endpoint,

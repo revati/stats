@@ -1,0 +1,27 @@
+defmodule Stats.Meeting do
+  use Stats.Schema
+  import Ecto.Changeset
+  import Ecto.Query
+
+  alias Stats.Source
+
+  schema "meetings" do
+    belongs_to(:source, Source)
+    has_many(:pools, Stats.Pool)
+    field(:url, :string)
+    field(:date, :date)
+    field(:contents, :string)
+  end
+
+  def query_from_struct(%__MODULE__{id: nil, url: url}), do: __MODULE__ |> where(url: ^url)
+  def query_from_struct(%__MODULE__{id: id}), do: __MODULE__ |> where(id: ^id)
+
+  def changeset(%__MODULE__{} = old, %__MODULE__{} = new), do: old |> cast(%{}, [])
+
+  def changeset_contents(%__MODULE__{} = source, contents) do
+    # TODO: Check if contents have changed before previous time
+    source
+    |> cast(%{contents: contents}, [:contents])
+    |> validate_required([:contents])
+  end
+end
